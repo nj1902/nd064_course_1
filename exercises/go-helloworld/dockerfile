@@ -1,0 +1,14 @@
+FROM golang:alpine
+
+LABEL maintainer = "Naman Jain"
+
+COPY . /go/src/app
+
+WORKDIR /go/src/app
+
+EXPOSE 6111
+
+RUN go mod init
+RUN go build -o helloworld
+
+CMD ["./helloworld"]

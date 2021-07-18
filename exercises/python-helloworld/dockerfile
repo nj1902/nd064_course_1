@@ -1,0 +1,21 @@
+FROM python:3.8
+
+# a set key-value label for the docker file
+LABEL maintainer = "Naman Jain"
+
+# Copy file from the host to the container filesystem
+# for e.g. all files in the current directory to the
+# '/app' directory in the container.
+COPY . /app
+
+# define the working directory within the container.
+WORKDIR /app
+
+# run commands within the container.
+# for e.g. invoke a pip command.
+# to install dependencies defined in the requirements.txt file.
+RUN pip install -r requirements.txt
+
+# provide a command to run on container start.
+# for e.g. start the 'app.py' application.
+CMD ["python", "app.py"]
